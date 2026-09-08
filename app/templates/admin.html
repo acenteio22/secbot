@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SecBot Admin</title>
+    <style>
+        body { font-family: system-ui; background: #0f172a; color: #e2e8f0; padding: 2rem; }
+        h1 { color: #38bdf8; margin-bottom: 1.5rem; }
+        table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 0.9rem 1rem; text-align: left; border-bottom: 1px solid #334155; }
+        th { background: #334155; }
+        a { color: #38bdf8; }
+    </style>
+</head>
+<body>
+    <h1>SecBot Admin Dashboard</h1>
+    <p>Logged in as: {{ user.username }} | <a href="/chat">Back to Chat</a> | <a href="/logout">Logout</a></p>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Title</th>
+                <th>Resolved</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in conversations %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.user.username }}</td>
+                <td>{{ c.title }}</td>
+                <td>{{ "Yes" if c.is_resolved else "No" }}</td>
+                <td>{{ c.updated_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

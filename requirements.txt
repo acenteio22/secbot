@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+anthropic
+python-dotenv
+sqlalchemy
+psycopg2-binary
+ldap3
+python-jose[cryptography]
+jinja2
+python-multipart
